@@ -5,7 +5,7 @@
   - [X] Add README
 - <b>Front End</b>
   - [X] Create a basic angular 2 app
-  - [ ] <b>Create the index page's basic layout</b>
+  - [ ] Create the index page's basic layout
     - [X] Navigation
     - [ ] Post
   - [ ] Create registration and login forms
