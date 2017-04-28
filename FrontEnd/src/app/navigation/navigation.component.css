@@ -1,0 +1,35 @@
+ul{
+	display: block;
+	height: 50px;
+	overflow: hidden;
+	
+	background-color: #cce0ff;
+}
+
+.nav-elem{
+	height: 100%;
+}
+
+.nav-elem a{
+	display: inline-block;
+	min-width: 70px;
+	height: 100%;
+	line-height: 25px;
+	text-align: center;
+	padding: 10px;
+	color: #001433;
+
+	background-color: #cce0ff;
+}
+
+.nav-elem a:hover{
+	background-color: #b3d1ff;
+}
+
+.left{
+	float: left;
+}
+
+.right{
+	float: right;
+}
