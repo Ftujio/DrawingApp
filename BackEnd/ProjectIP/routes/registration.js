@@ -7,8 +7,9 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-//  res.render('index', { title: 'Express' });
-    res.send("Welcome to registration");
+    res.send("Welcome to registration1");
 });
+
+// https://www.youtube.com/watch?v=pzGQMwGmCnc
 
 module.exports = router;
