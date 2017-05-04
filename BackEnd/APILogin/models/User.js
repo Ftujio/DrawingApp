@@ -4,9 +4,8 @@ SALT_WORK_FACTOR = 10; /* level of security */
 
 var userSchema = new mongoose.Schema({
    username: String,
-   password: String,
-   firstname: String,
-   lastname: String
+   email: String,
+   password: String
 });
 
 /* From stackoverflow */
@@ -38,5 +37,5 @@ userSchema.methods.comparePassword = function (candidatePassword, callback) {
     });
 };
 
-var User = mongoose.model('myusers', userSchema);
+var User = mongoose.model('users', userSchema);
 module.exports = User;

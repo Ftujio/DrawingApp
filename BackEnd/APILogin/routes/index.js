@@ -10,17 +10,13 @@ router.get('/', function(req, res, next) {
 
 router.post('/register', function (req, res) {
     var username = req.body.username;
+    var email = req.body.email;
     var password = req.body.password;
-    var firstname = req.body.firstname;
-    var lastname = req.body.lastname;
-
-  /* username, email, password */
 
     var newuser = new User();
     newuser.username = username;
+    newuser.email = email;
     newuser.password = password;
-    newuser.firstname = firstname;
-    newuser.lastname = lastname;
     newuser.save(function (err, savedUser) {
         if (err) {
             console.log(err);
@@ -43,6 +39,7 @@ router.post('/login', function (req, res) {
         }
 
         if (!user){
+            console.log('There is no such a use');
             return res.status(404).send();
         }
 
@@ -53,6 +50,7 @@ router.post('/login', function (req, res) {
 
                 return res.status(200).send();
             } else {
+                console.log('The password is incorrect');
                 return res.status(401).send();
             }
         });
