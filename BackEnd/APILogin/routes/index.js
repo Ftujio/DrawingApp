@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var User = require('../models/User');
+var Picture = require('../models/Picture');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -25,8 +26,7 @@ router.post('/register', function (req, res) {
 
         return res.status(200).send();
     })
-})
-
+});
 
 router.post('/login', function (req, res) {
     var username = req.body.username;
@@ -56,6 +56,27 @@ router.post('/login', function (req, res) {
         });
     })
 });
+
+// router.post('/post-picture', function (req, res, next) {
+//     var authorname = req.body.author_name;
+//     var title = req.body.title;
+//     var description = req.body.description;
+//     var tags = req.body.tags;
+//
+//     var newpicture = new Picture();
+//     newpicture.author_name = authorname;
+//     newpicture.title = title;
+//     newpicture.description = description;
+//     newpicture.tags = tags;
+//
+//     newpicture.save(function (err, savedPicture) {
+//         if (err) {
+//             console.log(err);
+//             return res.status(500).send();
+//         }
+//         return res.status(200).send();
+//     })
+// });
 
 router.get('/logout', function (req, res) {
     req.session.destroy();
