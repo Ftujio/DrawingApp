@@ -19,9 +19,10 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css",
-        "reset.css",
-        "main.css"
+        "public/css/styles.css",
+        "public/css/reset.css",
+        "public/css/main.css",
+        "public/css/forms.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
