@@ -1,0 +1,16 @@
+.post-container{
+}
+
+.post-header{
+	margin-bottom: 5px;
+}
+
+.post-title{
+	font-size: 25px;
+	text-decoration: underline;
+	padding-bottom: 3px;
+}
+
+.post-details{
+	font-style: italic;
+}
