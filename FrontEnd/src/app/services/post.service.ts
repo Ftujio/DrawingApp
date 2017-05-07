@@ -6,12 +6,6 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class PostService {
 
-	value: Object = {
-		name: "asdasd",
-		age: 35,
-		color: "red"
-	}
-
 	url: string = "http://localhost:4200/src/app/services/posts.json";
 
 	constructor(private http: Http) { }
