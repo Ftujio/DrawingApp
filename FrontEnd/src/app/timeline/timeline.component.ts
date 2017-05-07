@@ -15,6 +15,7 @@ export class TimelineComponent implements OnInit {
 	constructor(posts: PostService) {
 		posts.getPosts().subscribe(data => {
 			this.data = data;
+			console.log("Data retrieved successfully");
 		})
 	}
 
