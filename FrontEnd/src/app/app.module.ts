@@ -31,7 +31,7 @@ import { routing } from './app.routes';
     HttpModule,
     routing
   ],
-  providers: [],
+  providers: [ PostService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
