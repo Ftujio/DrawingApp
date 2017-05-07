@@ -91,29 +91,19 @@ router.get('/get-picture/:_id', function (req, res) {
            return res.status(500).send();
        }
        res.json(picture);
+       console.log('Successfull');
     });
 });
 
-// router.get('/get-picture/:description', function (req, res) {
-//    Picture.getPictureByDescription(req.params.description, function (err, picture) {
-//       if (err) {
-//           console.log(err);
-//           return res.status(500).send();
-//       }
-//       res.json(picture);
-//    });
-// });
-
-router.get('/get-picture:author_name', function (req, res) {
-    console.log("Ala baala" + req.params.author_name);
-    Picture.find({ 'author_name': req.params.author_name }, function (err, getPictureByAuthor) {
-
-        if (err) return next(err);
-//        res.send(getPictureByAuthor);
-        res.json(getPictureByAuthor);
-
+router.get('/get-picture', function (req, res) {
+    Picture.findOne({ "author_name": req.query.author_name }, function (err, pictures) {
+        console.log("Ala bala" + req.query.author_name);
+        if (err) {
+            console.log(err);
+            return res.status(500).send();
+        }
+        res.json(pictures);
     });
-
 });
 
 module.exports = router;
