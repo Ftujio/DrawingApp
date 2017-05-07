@@ -51,3 +51,7 @@ a, a:link, a:visited, a:active{
 	color: black;
 	text-decoration: none;
 }
+
+html {
+    overflow-y: scroll;
+}
