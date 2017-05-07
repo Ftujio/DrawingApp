@@ -10,8 +10,13 @@ import { PostService } from '../services/post.service';
 })
 export class TimelineComponent implements OnInit {
 
+	data: Object;
+
 	constructor(posts: PostService) {
-		console.log(posts.getPosts());
+		posts.getPosts().subscribe(data => {
+			this.data = data;
+			console.log(data);
+		})
 	}
 
 	ngOnInit() {
