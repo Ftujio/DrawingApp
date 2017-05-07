@@ -12,6 +12,9 @@
   - [ ] Create the drawing page layout
   - [ ] Inplement the drawing functionality
 - <b>Back End</b>
-  - [ ] Add some stuff
+  - [X] Login
+  - [X] Register
+  - [X] GET request for posts
+  - [X] POST request for posts
  
 @kalinkarev add todo stuff for the back end functionality
