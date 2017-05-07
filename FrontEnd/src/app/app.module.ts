@@ -16,22 +16,22 @@ import { PostService } from './services/post.service';
 import { routing } from './app.routes';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavigationComponent,
-    TimelineComponent,
-    PostComponent,
-    LoginComponent,
-    RegisterComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpModule,
-    routing
-  ],
-  providers: [ PostService ],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		NavigationComponent,
+		TimelineComponent,
+		PostComponent,
+		LoginComponent,
+		RegisterComponent
+	],
+	imports: [
+		BrowserModule,
+		FormsModule,
+		ReactiveFormsModule,
+		HttpModule,
+		routing
+	],
+	providers: [ PostService ],
+	bootstrap: [ AppComponent ]
 })
 export class AppModule { }
