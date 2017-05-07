@@ -27,6 +27,9 @@ body{
 .med-title{
 	font-size: 30px;
 }
+.small-title{
+	font-size: 25px;
+}
 
 .basic-button{
 	border: 1px solid #b3b3b3;
