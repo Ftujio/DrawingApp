@@ -1,5 +1,17 @@
 <div class="block">
-	<form>
-		<input type="text" name="email">
+	<form [formGroup]="loginForm" (ngSubmit)="login()">
+		<label for="username">Username: </label>
+		<input type="text" name="username" id="username" [formControl]="username">
+
+		<label for="username">Email: </label>
+		<input type="text" name="email" id="email" [formControl]="email">
+
+		<label for="username">Password: </label>
+		<input type="password" name="password" id="password" [formControl]="password">
+
+		<label for="username">Confirm Password: </label>
+		<input type="password" name="confirm-password" id="confirm-password" [formControl]="confirmPassword">
+
+		<button type="submit">log in</button>
 	</form>
 </div>
