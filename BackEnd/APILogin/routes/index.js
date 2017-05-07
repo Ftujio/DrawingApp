@@ -2,13 +2,13 @@ var express = require('express');
 var router = express.Router();
 
 var User = require('../models/User');
-var Picture = require('../models/Picture');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+/* POST make registration */
 router.post('/register', function (req, res) {
     var username = req.body.username;
     var email = req.body.email;
@@ -28,6 +28,7 @@ router.post('/register', function (req, res) {
     })
 });
 
+/* POST the user can login */
 router.post('/login', function (req, res) {
     var username = req.body.username;
     var password = req.body.password;
@@ -57,53 +58,10 @@ router.post('/login', function (req, res) {
     })
 });
 
+/* GET the user can logout */
 router.get('/logout', function (req, res) {
     req.session.destroy();
     return res.status(200).send();
-});
-
-
-router.post('/post-picture', function (req, res, next) {
-    var authorname = req.body.author_name;
-    var title = req.body.title;
-    var description = req.body.description;
-    var tags = req.body.tags;
-
-    var newpicture = new Picture();
-    newpicture.author_name = authorname;
-    newpicture.title = title;
-    newpicture.description = description;
-    newpicture.tags = tags;
-
-    newpicture.save(function (err, savedPicture) {
-        if (err) {
-            console.log(err);
-            return res.status(500).send();
-        }
-        return res.status(200).send();
-    })
-});
-
-router.get('/get-picture/:_id', function (req, res) {
-    Picture.getPictureById(req.params._id, function (err, picture) {
-       if (err) {
-           console.log(err);
-           return res.status(500).send();
-       }
-       res.json(picture);
-       console.log('Successfull');
-    });
-});
-
-router.get('/get-picture', function (req, res) {
-    Picture.findOne({ "author_name": req.query.author_name }, function (err, pictures) {
-        console.log("Ala bala" + req.query.author_name);
-        if (err) {
-            console.log(err);
-            return res.status(500).send();
-        }
-        res.json(pictures);
-    });
 });
 
 module.exports = router;
