@@ -8,15 +8,11 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 	username = new FormControl('');
-	email = new FormControl('');
 	password = new FormControl('');
-	confirmPassword = new FormControl('');
 
 	loginForm: FormGroup = this.builder.group({
 		username: this.username,
-		email: this.email,
 		password: this.password,
-		confirmPassword: this.confirmPassword
 	});
 
 	constructor(private builder: FormBuilder) { }
