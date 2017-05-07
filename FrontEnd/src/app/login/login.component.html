@@ -1,17 +1,23 @@
 <div class="block content">
+	<h1 class="med-title" id="login-header">Login</h1>
+
 	<form [formGroup]="loginForm" (ngSubmit)="login()">
-		<label for="username">Username: </label>
-		<input type="text" name="username" id="username" [formControl]="username">
+		<div class="form-line">
+			<input type="text" name="username" id="username" [formControl]="username" placeholder="Username">
+		</div>
 
-		<label for="username">Email: </label>
-		<input type="text" name="email" id="email" [formControl]="email">
+		<div class="form-line">
+			<input type="text" name="email" id="email" [formControl]="email" placeholder="Email">
+		</div>
 
-		<label for="username">Password: </label>
-		<input type="password" name="password" id="password" [formControl]="password">
+		<div class="form-line">
+			<input type="password" name="password" id="password" [formControl]="password" placeholder="Password">
+		</div>
 
-		<label for="username">Confirm Password: </label>
-		<input type="password" name="confirm-password" id="confirm-password" [formControl]="confirmPassword">
+		<div class="form-line">
+			<input type="password" name="confirm-password" id="confirm-password" [formControl]="confirmPassword" placeholder="Confirm Password">
+		</div>
 
-		<button type="submit">log in</button>
+		<button type="submit" class="basic-button">Submit</button>
 	</form>
 </div>
