@@ -10,8 +10,3 @@ var pictureSchema = new mongoose.Schema({
 var Picture = mongoose.model('pictures', pictureSchema);
 
 module.exports = Picture;
-
-/*Get picture by Id*/
-module.exports.getPictureById = function (id, callback) {
-    Picture.findById(id, callback);
-}
