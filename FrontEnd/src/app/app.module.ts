@@ -11,6 +11,8 @@ import { PostComponent } from './post/post.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
+import { PostService } from './services/post.service';
+
 import { routing } from './app.routes';
 
 @NgModule({
