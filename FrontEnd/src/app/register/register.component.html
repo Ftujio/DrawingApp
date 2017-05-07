@@ -1,3 +1,23 @@
 <div class="block content">
-  register works!
+	<h1 class="med-title" id="login-header">Register</h1>
+
+	<form [formGroup]="loginForm" (ngSubmit)="login()">
+		<div class="form-line">
+			<input type="text" name="username" id="username" [formControl]="username" placeholder="Username">
+		</div>
+
+		<div class="form-line">
+			<input type="text" name="email" id="email" [formControl]="email" placeholder="Email">
+		</div>
+
+		<div class="form-line">
+			<input type="password" name="password" id="password" [formControl]="password" placeholder="Password">
+		</div>
+
+		<div class="form-line">
+			<input type="password" name="confirm-password" id="confirm-password" [formControl]="confirmPassword" placeholder="Confirm Password">
+		</div>
+
+		<button type="submit" class="basic-button">Submit</button>
+	</form>
 </div>
