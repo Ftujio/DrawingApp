@@ -57,30 +57,63 @@ router.post('/login', function (req, res) {
     })
 });
 
-// router.post('/post-picture', function (req, res, next) {
-//     var authorname = req.body.author_name;
-//     var title = req.body.title;
-//     var description = req.body.description;
-//     var tags = req.body.tags;
-//
-//     var newpicture = new Picture();
-//     newpicture.author_name = authorname;
-//     newpicture.title = title;
-//     newpicture.description = description;
-//     newpicture.tags = tags;
-//
-//     newpicture.save(function (err, savedPicture) {
-//         if (err) {
-//             console.log(err);
-//             return res.status(500).send();
-//         }
-//         return res.status(200).send();
-//     })
-// });
-
 router.get('/logout', function (req, res) {
     req.session.destroy();
     return res.status(200).send();
+});
+
+
+router.post('/post-picture', function (req, res, next) {
+    var authorname = req.body.author_name;
+    var title = req.body.title;
+    var description = req.body.description;
+    var tags = req.body.tags;
+
+    var newpicture = new Picture();
+    newpicture.author_name = authorname;
+    newpicture.title = title;
+    newpicture.description = description;
+    newpicture.tags = tags;
+
+    newpicture.save(function (err, savedPicture) {
+        if (err) {
+            console.log(err);
+            return res.status(500).send();
+        }
+        return res.status(200).send();
+    })
+});
+
+router.get('/get-picture/:_id', function (req, res) {
+    Picture.getPictureById(req.params._id, function (err, picture) {
+       if (err) {
+           console.log(err);
+           return res.status(500).send();
+       }
+       res.json(picture);
+    });
+});
+
+// router.get('/get-picture/:description', function (req, res) {
+//    Picture.getPictureByDescription(req.params.description, function (err, picture) {
+//       if (err) {
+//           console.log(err);
+//           return res.status(500).send();
+//       }
+//       res.json(picture);
+//    });
+// });
+
+router.get('/get-picture:author_name', function (req, res) {
+    console.log("Ala baala" + req.params.author_name);
+    Picture.find({ 'author_name': req.params.author_name }, function (err, getPictureByAuthor) {
+
+        if (err) return next(err);
+//        res.send(getPictureByAuthor);
+        res.json(getPictureByAuthor);
+
+    });
+
 });
 
 module.exports = router;

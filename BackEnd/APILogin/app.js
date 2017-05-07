@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var seesion = require('express-session');
 
+/* Connect to mongoose */
 mongoose.connect('mongodb://localhost/testlogin', function (err) {
    if (err)
      return console.log(err);
