@@ -23,7 +23,8 @@ export class RegisterComponent implements OnInit {
 			Validators.maxLength(10)
 		]),
 		email: new FormControl('', [
-			Validators.required
+			Validators.required,
+			FormValidators
 		]),
 		password: new FormControl('', [
 			Validators.required
@@ -34,7 +35,7 @@ export class RegisterComponent implements OnInit {
 	});
 
 	constructor(private builder: FormBuilder) {
-		FormValidators();
+
 	}
 
 	ngOnInit() {
