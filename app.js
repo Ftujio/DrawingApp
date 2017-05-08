@@ -8,13 +8,13 @@ var seesion = require('express-session')
 var passport = require('passport');
 var cors = require('cors');
 
+var config = require('./config/database');
+
 var app = express();
 
-/* Connect to mongoose */
-mongoose.connect('mongodb://localhost/testlogin', function (err) {
-   if (err)
-     return console.log(err);
-   return console.log("Successfully connected to MongoDB");
+mongoose.connect(config.database);
+mongoose.connection.on('connected', () => {
+	console.log('Connected to database', config.database);
 });
 
 var index = require('./routes/index');
