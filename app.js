@@ -17,6 +17,10 @@ mongoose.connection.on('connected', () => {
 	console.log('Connected to database', config.database);
 });
 
+mongoose.connection.on('error', () => {
+	console.log('Database error', error);
+});
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 var picture = require('./routes/picture');
