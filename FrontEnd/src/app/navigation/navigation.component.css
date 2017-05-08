@@ -2,8 +2,9 @@ ul{
 	display: block;
 	height: 50px;
 	overflow: hidden;
+	font-size: 20px;
 	
-	background-color: #cce0ff;
+	background-color: white;
 }
 
 .nav-elem{
@@ -17,13 +18,13 @@ ul{
 	line-height: 25px;
 	text-align: center;
 	padding: 10px;
-	color: #001433;
+	color: black;
 
-	background-color: #cce0ff;
+	background-color: white;
 }
 
 .nav-elem a:hover{
-	background-color: #b3d1ff;
+	background-color: #e6e6e6;
 }
 
 .left{

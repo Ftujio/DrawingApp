@@ -1,0 +1,50 @@
+body{
+	background-color: #f2f2f2;
+}
+
+#page-container{
+	width: 1200px;
+	margin: 0px auto;
+	padding-top: 5px;
+}
+
+#page-header{
+
+}
+
+.block{
+	background-color: #fff;
+	box-shadow: 5px 5px 2px #cccccc;
+}
+
+.content{
+	margin-top: 10px;
+	padding: 15px;
+
+	min-height: 250px;
+}
+
+.med-title{
+	font-size: 30px;
+}
+.small-title{
+	font-size: 25px;
+}
+
+.underline{
+	display: inline-block;
+	border-bottom: 2px solid black;
+	padding-bottom: 2px;
+}
+.underline-small{
+	display: inline-block;
+	border-bottom: 1px solid black;
+}
+
+.basic-button{
+	border: 1px solid #b3b3b3;
+	background-color: #f2f2f2;
+	width: 100px;
+	height: 40px;
+	font-size: 18px;
+}

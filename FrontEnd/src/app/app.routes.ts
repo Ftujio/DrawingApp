@@ -4,9 +4,9 @@ import { RegisterComponent } from './register/register.component';
 import { TimelineComponent } from './timeline/timeline.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: '', component: TimelineComponent },
+	{ path: 'login', component: LoginComponent },
+	{ path: 'register', component: RegisterComponent },
+	{ path: '', component: TimelineComponent },
 ];
 
 export const routing = RouterModule.forRoot(routes);

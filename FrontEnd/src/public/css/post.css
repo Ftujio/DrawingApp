@@ -1,0 +1,39 @@
+.post-container{
+	width: 700px;
+	margin-bottom: 50px;
+}
+
+.post-header{
+	margin-bottom: 5px;
+}
+
+.post-title{
+	font-size: 25px;
+	margin-bottom: 5px;
+}
+
+.post-details{
+	font-style: italic;
+	margin-bottom: 8px;
+}
+
+.post-author{
+	margin-left: 5px;
+}
+
+.post-container img{
+	width: 100%;
+}
+
+.tags{
+	display: block;
+	overflow: hidden;
+	height: 20px;
+	margin-top: 5px;
+}
+
+.tag{
+	float: left;
+	margin-right: 5px;
+	font-style: italic;
+}
