@@ -1,41 +1,32 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
-SALT_WORK_FACTOR = 10; /* level of security */
+const config = require('../models/database');
 
 var userSchema = new mongoose.Schema({
-   username: String,
-   email: String,
-   password: String
+   name: {
+		 type: String,
+	 },
+	 email: {
+		 type: String,
+		 required: true
+	 },
+	 username: {
+		 type: String,
+		 required: true
+	 },
+	 password: {
+		 type: String,
+		 required: true
+	 }
 });
 
-/* From stackoverflow */
-userSchema.pre('save', function (next) {
-   var user = this;
+var User = module.exports = mongoose.model('users', userSchema);
 
-   /* Only hash the password if it has been modified (or is new) */
-   if (!user.isModified('password')) return next();
+module.exports.getUserById = function(id, callback){
+	User.findById(id, callback);
+}
 
-   /* Generate a salt */
-   bcrypt.genSalt(SALT_WORK_FACTOR, function (err, salt) {
-       if (err) return next(err);
-
-       /* Hash the password using our new salt */
-       bcrypt.hash(user.password, salt, function (err, hash) {
-           if (err) return next(err);
-
-           /* Override the cleartext password with the hashed one */
-           user.password = hash;
-           next();
-       });
-   });
-});
-
-userSchema.methods.comparePassword = function (candidatePassword, callback) {
-    bcrypt.compare(candidatePassword, this.password, function (err, isMatch) {
-        if (err) return callback(err);
-        callback(undefined, isMatch);
-    });
-};
-
-var User = mongoose.model('users', userSchema);
-module.exports = User;
+module.exports.getUserByUsername = function(username, callback){
+	cons query = { username: username };
+	User.findOne(query, callback);
+}
