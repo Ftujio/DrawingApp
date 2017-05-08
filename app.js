@@ -4,8 +4,9 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const seesion = require('express-session')
+const session = require('express-session')
 const passport = require('passport');
+const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
 const config = require('./config/database');
@@ -28,11 +29,13 @@ const picture = require('./routes/picture');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
-//app.set('view engine', 'html');
-
 app.use(logger('dev'));
-app.use(express.cookieParser('secret kappa'));
-//app.use(express.session());
+app.use(cookieParser('secret kappa'));
+app.use(session({
+	secret: 'secret kappa',
+	resave: false,
+	saveUninitialized: true
+}));
 app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
