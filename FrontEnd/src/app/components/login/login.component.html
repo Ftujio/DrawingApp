@@ -3,11 +3,11 @@
 
 	<form [formGroup]="loginForm" (ngSubmit)="login()">
 		<div class="form-line">
-			<input type="text" name="username" id="username" [formControl]="username" placeholder="Username" class="input">
+			<input type="text" name="username" id="username" formControlName="username" placeholder="Username" class="input">
 		</div>
 
 		<div class="form-line">
-			<input type="password" name="password" id="password" [formControl]="password" placeholder="Password" class="input">
+			<input type="password" name="password" id="password" formControlName="password" placeholder="Password" class="input">
 		</div>
 
 		<button type="submit" class="basic-button" id="submit">Submit</button>
