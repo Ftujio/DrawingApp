@@ -1,8 +1,8 @@
-var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
-const config = require('../models/database');
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const config = require('../config/database');
 
-var userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
    name: {
 		 type: String,
 	 },
@@ -20,13 +20,13 @@ var userSchema = new mongoose.Schema({
 	 }
 });
 
-var User = module.exports = mongoose.model('users', userSchema);
+const User = module.exports = mongoose.model('users', userSchema);
 
 module.exports.getUserById = function(id, callback){
 	User.findById(id, callback);
 }
 
 module.exports.getUserByUsername = function(username, callback){
-	cons query = { username: username };
+	const query = { username: username };
 	User.findOne(query, callback);
 }

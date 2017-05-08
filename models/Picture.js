@@ -1,13 +1,13 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var pictureSchema = mongoose.Schema({
+const pictureSchema = mongoose.Schema({
     author_name: String,
     title: String,
     description: String,
     tags: [String]
 });
 
-var Picture = module.exports = mongoose.model('Picture', pictureSchema);
+const Picture = module.exports = mongoose.model('Picture', pictureSchema);
 
 //module.exports = Picture;
 
@@ -18,8 +18,8 @@ module.exports.addPicture = function (picture, callback) {
 
 /* Update picture */
 module.exports.updatePicture = function (id, picture, callback) {
-    var query = {_id: id};
-    var update = {
+    const query = {_id: id};
+    const update = {
         author_name: picture.author_name,
         title: picture.title,
         description: picture.description,
@@ -30,6 +30,6 @@ module.exports.updatePicture = function (id, picture, callback) {
 
 /* Delete picture */
 module.exports.removePicture = function (id, callback) {
-    var query = {_id: id};
+    const query = {_id: id};
     Picture.remove(query, callback);
 }

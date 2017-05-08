@@ -1,16 +1,16 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var seesion = require('express-session')
-var passport = require('passport');
-var cors = require('cors');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const seesion = require('express-session')
+const passport = require('passport');
+const cors = require('cors');
 
-var config = require('./config/database');
+const config = require('./config/database');
 
-var app = express();
+const app = express();
 
 mongoose.connect(config.database);
 mongoose.connection.on('connected', () => {
