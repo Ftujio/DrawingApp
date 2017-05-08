@@ -5,7 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var seesion = require('express-session');
+var seesion = require('express-session')
+var passport = require('passport');
+var cors = require('cors');
+
+var app = express();
 
 /* Connect to mongoose */
 mongoose.connect('mongodb://localhost/testlogin', function (err) {
@@ -17,8 +21,6 @@ mongoose.connect('mongodb://localhost/testlogin', function (err) {
 var index = require('./routes/index');
 var users = require('./routes/users');
 var picture = require('./routes/picture');
-
-var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,6 +34,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(seesion({secret:"abcdefghijklmnnmlkjihgfedcba", resave:false, saveUninitialized:true}));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 app.use('/', index);
 app.use('/users', users);
