@@ -35,8 +35,11 @@ app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
+
 app.use(passport.initialize());
 app.use(passport.session());
+
+require('./config/passport')(passport);
 
 app.use('/', index);
 app.use('/users', users);
