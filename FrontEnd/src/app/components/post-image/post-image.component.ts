@@ -27,7 +27,8 @@ export class PostImageComponent implements OnInit {
 	}
 
 	addTag(){
-		this.tags.push(new FormControl(this.postImageForm.value.tagInput));
+		let value = this.postImageForm.value.tagInput;
+		this.tags.push(new FormControl(value));
 		this.postImageForm.controls.tagInput.setValue('');
 	}
 

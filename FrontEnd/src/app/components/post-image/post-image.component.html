@@ -12,9 +12,11 @@
 			<input type="button" id="add-tag" class="basic-button" value="Add tag" (click)="addTag()"/>
 		</div>
 
-		<div class="form-line">
-			{{ tags.value | json }}
-		</div>
+		<ul class="tags" id="post-image-tags">
+			<li class="tag underline-small" *ngFor="let tag of tags.value">
+				<a routerLink="/">{{ tag }}; </a>
+			</li>
+		</ul>
 
 		<button type="submit" class="basic-button">Submit</button>
 	</form>
