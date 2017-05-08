@@ -1,6 +1,8 @@
 <div class="block content">
 	<h1 class="med-title" id="form-header">Register</h1>
 
+	<flash-messages></flash-messages>
+
 	<form [formGroup]="loginForm" (ngSubmit)="login()">
 		<div class="form-line">
 			<input type="text" name="username" id="username" formControlName="username" placeholder="Username" class="input">

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 import { isEmail, passwordConfirmed, password } from '../../validators/form';
 
@@ -29,7 +30,7 @@ export class RegisterComponent implements OnInit {
 		]),
 	});
 
-	constructor(private builder: FormBuilder) {
+	constructor(private builder: FormBuilder, private _flashMessagesService: FlashMessagesService) {
 		
 	}
 
