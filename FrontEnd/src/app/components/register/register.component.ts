@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
-import { FormValidators } from '../../validators/form';
+import { CustomFromValidator } from '../../validators/form';
 
 @Component({
 	selector: 'app-register',
@@ -9,12 +9,7 @@ import { FormValidators } from '../../validators/form';
 	styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-	// loginForm: FormGroup = this.builder.group({
-	// 	'username': [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(10)])],
-	// 	'email': [null, Validators.required],
-	// 	'password': [null, Validators.required],
-	// 	'confirmPassword': [null, Validators.required],
-	// });
+	customFormValidator = new CustomFromValidator();
 
 	loginForm: FormGroup = this.builder.group({
 		username: new FormControl('', [
@@ -24,7 +19,7 @@ export class RegisterComponent implements OnInit {
 		]),
 		email: new FormControl('', [
 			Validators.required,
-			FormValidators
+			this.customFormValidator.isEmail
 		]),
 		password: new FormControl('', [
 			Validators.required
