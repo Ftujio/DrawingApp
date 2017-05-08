@@ -3,11 +3,18 @@
 
 	<form [formGroup]="postImageForm" (ngSubmit)="postImage()">
 		<div class="form-line">
-			<input type="text" name="title" id="title" [formControl]="title" placeholder="Title">
+			<input type="text" name="title" id="title" [formControl]="title" placeholder="Title" class="input">
 		</div>
 
 		<div class="form-line">
-			<input type="text" name="tags" id="tags" [formControl]="tags" placeholder="Tags">
+			<div formArrayName="tags">
+				<input type="text" name="tags" id="tags" placeholder="Tags" class="input" [formControl]="tagInput">
+			</div>
+			<input type="button" id="add-tag" class="basic-button" value="Add tag" (click)="addTag()"/>
+		</div>
+
+		<div class="form-line">
+			{{ tags.value | json }}
 		</div>
 
 		<button type="submit" class="basic-button">Submit</button>

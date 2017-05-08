@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-post-image',
@@ -8,10 +8,12 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 })
 export class PostImageComponent implements OnInit {
 	title = new FormControl('');
-	tags = new FormControl('');
+	tagInput = new FormControl();
+	tags = new FormArray([]);
 
 	postImageForm: FormGroup = this.builder.group({
 		title: this.title,
+		tagInput: this.tagInput,
 		tags: this.tags,
 	});
 
@@ -22,6 +24,10 @@ export class PostImageComponent implements OnInit {
 
 	postImage(){
 		console.log(this.postImageForm.value);
+	}
+
+	addTag(){
+		this.tags.push(new FormControl(this.postImageForm.value.tagInput));
 	}
 
 }
