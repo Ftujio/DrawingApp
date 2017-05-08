@@ -23,7 +23,6 @@ export const password = function(c: FormControl){
 }
 
 export const passwordConfirmed = function(c: FormControl) {
-
 	return pass == c.value ? null : {
 		passwordConfirmed: {
 			valid: false
