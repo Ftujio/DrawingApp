@@ -3,18 +3,18 @@
 
 	<form [formGroup]="postImageForm" (ngSubmit)="postImage()">
 		<div class="form-line">
-			<input type="text" name="title" id="title" [formControl]="title" placeholder="Title" class="input">
+			<input type="text" name="title" id="title" formControlName="title" placeholder="Title" class="input">
 		</div>
 
 		<div class="form-line">
 			<div formArrayName="tags"></div>
-			<input type="text" name="tags" id="tags" placeholder="Tags" class="input" [formControl]="tagInput">
+			<input type="text" name="tagInput" id="tagInput" formControlName="tagInput" placeholder="Tags" class="input">
 			<input type="button" id="add-tag" class="basic-button" value="Add tag" (click)="addTag()"/>
 		</div>
 
 		<ul class="tags" id="post-image-tags">
-			<li class="tag underline-small" *ngFor="let tag of tags.value">
-				<a routerLink="/">{{ tag }}; </a>
+			<li class="tag underline-small" *ngFor="let tag of this.postImageForm.controls.tags['controls']">
+				<a routerLink="/">{{ tag.value }}; </a>
 			</li>
 		</ul>
 
