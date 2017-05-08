@@ -16,6 +16,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { PostService } from './services/post.service';
 
 import { routing } from './app.routes';
+import { PostImageComponent } from './components/post-image/post-image.component';
 
 @NgModule({
 	declarations: [
@@ -24,7 +25,8 @@ import { routing } from './app.routes';
 		TimelineComponent,
 		PostComponent,
 		LoginComponent,
-		RegisterComponent
+		RegisterComponent,
+		PostImageComponent
 	],
 	imports: [
 		BrowserModule,
