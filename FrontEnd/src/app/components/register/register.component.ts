@@ -9,8 +9,6 @@ import { isEmail, passwordConfirmed, password } from '../../validators/form';
 	styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-	//customFormValidator = new CustomFromValidator();
-
 	loginForm: FormGroup = this.builder.group({
 		username: new FormControl('', [
 			Validators.required,
@@ -32,7 +30,7 @@ export class RegisterComponent implements OnInit {
 	});
 
 	constructor(private builder: FormBuilder) {
-		console.log(this.loginForm.controls['password'].constructor.name);
+		
 	}
 
 	ngOnInit() {
