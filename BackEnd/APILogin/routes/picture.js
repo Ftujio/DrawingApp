@@ -1,34 +1,52 @@
 var express = require('express');
 var router = express.Router();
 
-var Picture = require('../models/Picture');
+Picture = require('../models/Picture');
 
 /* GET picture listing. */
 router.get('/', function(req, res, next) {
     res.send('respond with a resource');
 });
 
-/* POST creating a picture */
-router.post('/post-picture', function (req, res, next) {
-    var authorname = req.body.author_name;
-    var title = req.body.title;
-    var description = req.body.description;
-    var tags = req.body.tags;
+/* POST a picture */
+router.post('/post-picture', function (req, res) {
+    console.log('Hello');
+    var picture = req.body;
+    Picture.addPicture(picture, function (err, picture) {
+       if (err) {
+           console.log(err);
+           return res.status(500).send();
+       }
+       res.json(picture);
+    });
+});
 
-    var newpicture = new Picture();
-    newpicture.author_name = authorname;
-    newpicture.title = title;
-    newpicture.description = description;
-    newpicture.tags = tags;
-
-    newpicture.save(function (err, savedPicture) {
+/* POST a picture */
+router.put('/put-picture/:_id', function (req, res) {
+    var id = req.params._id;
+    var picture = req.body;
+    Picture.updatePicture(id, picture, function (err, picture) {
         if (err) {
             console.log(err);
             return res.status(500).send();
         }
-        return res.status(200).send();
-    })
+        res.json(picture);
+    });
 });
+
+/* POST a picture */
+router.delete('/delete-picture/:_id', function (req, res) {
+    var id = req.params._id;
+    Picture.removePicture(id, function (err, picture) {
+        if (err) {
+            console.log(err);
+            return res.status(500).send();
+        }
+        res.json(picture);
+    });
+});
+
+
 
 /* GET the picture by author */
 router.get('/get-picture/author', function (req, res) {
