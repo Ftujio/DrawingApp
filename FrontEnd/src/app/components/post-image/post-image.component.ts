@@ -28,6 +28,8 @@ export class PostImageComponent implements OnInit {
 
 	addTag(){
 		this.tags.push(new FormControl(this.postImageForm.value.tagInput));
+		console.log(this.postImageForm.controls.tagInput.value);
+		this.postImageForm.controls.tagInput.setValue('');
 	}
 
 }
