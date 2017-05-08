@@ -1,3 +1,15 @@
-<p>
-  post-image works!
-</p>
+<div class="block content">
+	<h1 class="med-title" id="form-header">Login</h1>
+
+	<form [formGroup]="loginForm" (ngSubmit)="login()">
+		<div class="form-line">
+			<input type="text" name="username" id="username" [formControl]="username" placeholder="Username">
+		</div>
+
+		<div class="form-line">
+			<input type="password" name="password" id="password" [formControl]="password" placeholder="Password">
+		</div>
+
+		<button type="submit" class="basic-button">Submit</button>
+	</form>
+</div>
