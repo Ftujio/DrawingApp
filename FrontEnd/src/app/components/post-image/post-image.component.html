@@ -7,9 +7,8 @@
 		</div>
 
 		<div class="form-line">
-			<div formArrayName="tags">
-				<input type="text" name="tags" id="tags" placeholder="Tags" class="input" [formControl]="tagInput">
-			</div>
+			<div formArrayName="tags"></div>
+			<input type="text" name="tags" id="tags" placeholder="Tags" class="input" [formControl]="tagInput">
 			<input type="button" id="add-tag" class="basic-button" value="Add tag" (click)="addTag()"/>
 		</div>
 
