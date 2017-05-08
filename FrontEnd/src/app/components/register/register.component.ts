@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
+import { FormValidators } from '../../validators/form';
+
 @Component({
 	selector: 'app-register',
 	templateUrl: './register.component.html',
@@ -31,7 +33,9 @@ export class RegisterComponent implements OnInit {
 		]),
 	});
 
-	constructor(private builder: FormBuilder) { }
+	constructor(private builder: FormBuilder) {
+		FormValidators();
+	}
 
 	ngOnInit() {
 	}
