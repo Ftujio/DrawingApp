@@ -1,10 +1,30 @@
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
+
 const User = require('../models/user');
 
-/* GET users listing. */
+// REGISTER
 router.post('/register', (req, res, next) => {
-  res.send('REGISTER');
+	console.log(req.body);
+
+	let newUser = new User({
+		username: req.body.username,
+		email: req.body.email,
+		password: req.body.password
+	});
+
+	console.log(newUser);
+
+	User.addUser(newUser, (err, user) => {
+		console.log('********************************************************');
+		if(err){
+			res.json({success: false, msg: 'Failed to register user'});
+		} else {
+			res.json({success: true, msg: 'User registered'});
+		}
+	});
 });
 
 router.post('/authenticate', (req, res, next) => {

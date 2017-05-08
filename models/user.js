@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const config = require('../config/database');
 
-const userSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
    name: {
 		 type: String,
 	 },
@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
 	 }
 });
 
-const User = module.exports = mongoose.model('users', userSchema);
+const User = module.exports = mongoose.model('User', UserSchema);
 
 module.exports.getUserById = function(id, callback){
 	User.findById(id, callback);
@@ -29,4 +29,13 @@ module.exports.getUserById = function(id, callback){
 module.exports.getUserByUsername = function(username, callback){
 	const query = { username: username };
 	User.findOne(query, callback);
+}
+
+module.exports.addUser = function(newUser, callback){
+	bcrypt.genSalt(10, (err, salt) => {
+		bcrypt.hash(newUser.password, salt, (err, hash) => {
+			newUser.password = hash;
+			newUser.save(callback);
+		});
+	});
 }
