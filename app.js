@@ -21,9 +21,9 @@ mongoose.connection.on('error', () => {
 	console.log('Database error', error);
 });
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-var picture = require('./routes/picture');
+const index = require('./routes/index');
+const users = require('./routes/users');
+const picture = require('./routes/picture');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -31,6 +31,8 @@ var picture = require('./routes/picture');
 //app.set('view engine', 'html');
 
 app.use(logger('dev'));
+app.use(express.cookieParser('secret kappa'));
+//app.use(express.session());
 app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
