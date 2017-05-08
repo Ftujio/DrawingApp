@@ -5,10 +5,10 @@ import { TimelineComponent } from './components/timeline/timeline.component';
 import { PostImageComponent } from './components/post-image/post-image.component';
 
 const routes: Routes = [
+	{ path: '', component: TimelineComponent },
 	{ path: 'login', component: LoginComponent },
 	{ path: 'register', component: RegisterComponent },
 	{ path: 'post-image', component: PostImageComponent },
-	{ path: '', component: TimelineComponent },
 ];
 
 export const routing = RouterModule.forRoot(routes);
