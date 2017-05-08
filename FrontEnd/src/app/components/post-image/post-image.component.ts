@@ -11,9 +11,7 @@ export class PostImageComponent implements OnInit {
 		title: new FormControl('', [
 			Validators.required
 		]),
-		tagInput: new FormControl('', [
-			Validators.required
-		]),
+		tagInput: new FormControl(''),
 		tags: new FormArray([]),
 	});
 
@@ -23,12 +21,15 @@ export class PostImageComponent implements OnInit {
   }
 
 	postImage(){
-		console.log(this.postImageForm.value);
+		console.log(this.postImageForm.valid);
 	}
 
 	addTag(){
 		let value = this.postImageForm.value.tagInput;
-		if(value != '') this.postImageForm.controls.tags['controls'].push(new FormControl(value));
+		let control = new FormControl(value, [
+			Validators.required
+		]);
+		if(value != '') this.postImageForm.controls.tags['controls'].push(control);
 		this.postImageForm.controls.tagInput.setValue('');
 
 		console.log(this.postImageForm.controls.tags['controls']);
