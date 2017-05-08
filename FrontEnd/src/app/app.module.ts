@@ -6,11 +6,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 // Components
 import { AppComponent } from './app.component';
-import { NavigationComponent } from './navigation/navigation.component';
-import { TimelineComponent } from './timeline/timeline.component';
-import { PostComponent } from './post/post.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { TimelineComponent } from './components/timeline/timeline.component';
+import { PostComponent } from './components/post/post.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 // Services
 import { PostService } from './services/post.service';
