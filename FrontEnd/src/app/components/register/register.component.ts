@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
 	selector: 'app-register',
@@ -7,16 +7,11 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 	styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-	username = new FormControl('');
-	email = new FormControl('');
-	password = new FormControl('');
-	confirmPassword = new FormControl('');
-
 	loginForm: FormGroup = this.builder.group({
-		username: this.username,
-		email: this.email,
-		password: this.password,
-		confirmPassword: this.confirmPassword
+		'username': [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(10)])],
+		'email': [null, Validators.required],
+		'password': [null, Validators.required],
+		'confirmPassword': [null, Validators.required],
 	});
 
 	constructor(private builder: FormBuilder) { }
@@ -25,6 +20,6 @@ export class RegisterComponent implements OnInit {
 	}
 
 	login(){
-		console.log(this.loginForm.value);
+		console.log(this.loginForm.valid);
 	}
 }
