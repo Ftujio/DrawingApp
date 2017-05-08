@@ -18,6 +18,7 @@ import { PostImageComponent } from './components/post-image/post-image.component
 import { PostService } from './services/post.service';
 
 import { routing } from './app.routes';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
 	declarations: [
@@ -27,7 +28,8 @@ import { routing } from './app.routes';
 		PostComponent,
 		LoginComponent,
 		RegisterComponent,
-		PostImageComponent
+		PostImageComponent,
+		ProfileComponent
 	],
 	imports: [
 		BrowserModule,
