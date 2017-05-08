@@ -11,7 +11,7 @@ router.get('/authenticate', (req, res, next) => {
 });
 
 router.get('/profile', (req, res, next) => {
-	res.send('AUTHENTICATE');
+	res.send('PROFILE');
 });
 
 
