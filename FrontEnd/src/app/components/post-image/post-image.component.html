@@ -1,13 +1,13 @@
 <div class="block content">
-	<h1 class="med-title" id="form-header">Login</h1>
+	<h1 class="med-title" id="form-header">Post Image</h1>
 
-	<form [formGroup]="loginForm" (ngSubmit)="login()">
+	<form [formGroup]="postImageForm" (ngSubmit)="postImage()">
 		<div class="form-line">
-			<input type="text" name="username" id="username" [formControl]="username" placeholder="Username">
+			<input type="text" name="title" id="title" [formControl]="title" placeholder="Title">
 		</div>
 
 		<div class="form-line">
-			<input type="password" name="password" id="password" [formControl]="password" placeholder="Password">
+			<input type="text" name="tags" id="tags" [formControl]="tags" placeholder="Tags">
 		</div>
 
 		<button type="submit" class="basic-button">Submit</button>
