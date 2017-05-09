@@ -17,6 +17,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 
 // Services
 import { PostService } from './services/post.service';
+import { AuthService } from './services/auth.service';
 
 import { routing } from './app.routes';
 
@@ -39,7 +40,7 @@ import { routing } from './app.routes';
 		FlashMessagesModule,
 		routing
 	],
-	providers: [ PostService ],
+	providers: [ PostService, AuthService ],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule { }

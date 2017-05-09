@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { AuthService } from '../../services/auth.service';
 
 import { isEmail, passwordConfirmed, password } from '../../validators/form';
 
@@ -30,7 +33,12 @@ export class RegisterComponent implements OnInit {
 		]),
 	});
 
-	constructor(private builder: FormBuilder, private _flashMessagesService: FlashMessagesService) {
+	constructor(
+		private builder: FormBuilder,
+		private _flashMessagesService: FlashMessagesService,
+		private authService: AuthService,
+		private router: Router
+	) {
 
 	}
 
@@ -49,13 +57,21 @@ export class RegisterComponent implements OnInit {
 		}
 
 		if(this.loginForm.valid){
-			this._flashMessagesService.show('Registered successfully', {cssClass: 'alert-success', timeout: 3000});
-			
 			const user = {
 				username: this.loginForm.value.username,
 				email: this.loginForm.value.email,
 				password: this.loginForm.value.password,
 			}
+
+			this.authService.registerUser(user).subscribe(data => {
+				if(data.success){
+					this._flashMessagesService.show('Registered successfully', {cssClass: 'alert-success', timeout: 3000});
+					this.router.navigate(['/login']);
+				} else {
+					this._flashMessagesService.show('Something went wrong', {cssClass: 'alert-success', timeout: 3000});
+					this.router.navigate(['/register']);
+				}
+			});
 		}
 	}
 }
