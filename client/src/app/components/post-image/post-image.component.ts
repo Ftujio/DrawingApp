@@ -13,6 +13,8 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./post-image.component.css']
 })
 export class PostImageComponent implements OnInit {
+	user: Object;
+
 	postImageForm: FormGroup = this.builder.group({
 		title: new FormControl('', [
 			Validators.required
@@ -25,12 +27,20 @@ export class PostImageComponent implements OnInit {
 		private builder: FormBuilder,
 		private _flashMessagesService: FlashMessagesService,
 		private authService: AuthService,
-		private router: Router
+		private router: Router,
+		private http: Http
 	) {
 
 	}
 
   ngOnInit() {
+		this.authService.getProfile().subscribe(profile => {
+			this.user = profile.user;
+		},
+		err => {
+			console.log(err);
+			//return false;
+		});
   }
 
 	addTag(){
@@ -46,7 +56,21 @@ export class PostImageComponent implements OnInit {
 
 	postImage(){
 		if(this.postImageForm.valid){
-			
+			const picture = {
+				author_name: this.user['username'],
+				title: this.postImageForm.value.title,
+				tags: this.postImageForm.value['tags']
+			}
+
+			console.log(this.postImageForm.value);
+
+			let headers = new Headers();
+			headers.append('Content-Type', 'application/json');
+			this.http.post('http://localhost:3001/picture/post-picture', picture, {headers: headers}).map(res => res.json()).subscribe(data => {
+				if(data.success){
+					this.router.navigate(['/']);
+				}
+			});
 		}
 	}
 }

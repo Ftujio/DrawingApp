@@ -4,8 +4,11 @@ var router = express.Router();
 Picture = require('../models/Picture');
 
 /* GET picture listing. */
-router.get('/', function(req, res, next) {
-    res.send('respond with a resource');
+router.get('/get-pictures', function(req, res, next) {
+    Picture.find({}, (err, doc) => {
+			if(err) res.json({success: false, msg: err});
+			res.json({success: true, doc: doc});
+		});
 });
 
 /* POST a picture */
@@ -14,9 +17,10 @@ router.post('/post-picture', function (req, res) {
     Picture.addPicture(picture, function (err, picture) {
        if (err) {
            console.log(err);
-           return res.status(500).send();
+           //return res.status(500).send();
+					 res.json({success: false, msg: 'Picture not added'});
        }
-       res.json(picture);
+       res.json({success: true, msg: 'Picture addded successfully'});
     });
 });
 
