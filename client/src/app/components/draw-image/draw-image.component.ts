@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-//import { System } from 'system';
+import { Component, OnInit, ViewChild, ElementRef,Renderer2 } from '@angular/core';
+import { Draw } from './draw';
 
 @Component({
   selector: 'app-draw-image',
@@ -7,14 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./draw-image.component.css', './icons.css', './main.css', './reset.css', './side-toolbar.css', './toolbar.css']
 })
 export class DrawImageComponent implements OnInit {
+	@ViewChild('canvasObj') canvasObj:ElementRef;
+	//draw: Draw;
+	canvas;
+	c;
 
   constructor() {
-		// System.import('public/js/setup.js').then(refToLoadedModule => {
-    //   refToLoadedModule.someFunction();
-    // });
 	}
 
   ngOnInit() {
-  }
+		this.canvas = this.canvasObj.nativeElement;
+		this.c = this.canvas.getContext("2d");
+		this.c.fillStyle = "white";
+		this.c.fillRect(0, 0, this.canvas.width, this.canvas.height);
+	}
 
 }
