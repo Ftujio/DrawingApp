@@ -22,9 +22,9 @@ export class LoginComponent implements OnInit {
 
 	constructor(
 		private builder: FormBuilder,
+		private _flashMessagesService: FlashMessagesService,
 		private authService: AuthService,
-		private router: Router,
-		private _flashMessagesService: FlashMessagesService
+		private router: Router
 	) { }
 
 	ngOnInit() {
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
 					this.authService.storeUserData(data.token, data.user);
 					this.router.navigate(['/profile']);
 				} else {
-					//this._flashMessagesService.show(data.msg, {cssClass: 'alert-danger', timeout: 5000});
+					this._flashMessagesService.show('DSADSD', {cssClass: 'alert-danger', timeout: 5000});
 					this.router.navigate(['/login']);
 				}
 			});
