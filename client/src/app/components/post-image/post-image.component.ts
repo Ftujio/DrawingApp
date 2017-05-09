@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, FormArray, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Http, Headers } from '@angular/http';
+import 'rxjs/add/operator/map';
+
+import { FlashMessagesService } from 'angular2-flash-messages';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-post-image',
@@ -15,7 +21,14 @@ export class PostImageComponent implements OnInit {
 		tags: new FormArray([]),
 	});
 
-  constructor(private builder: FormBuilder) { }
+	constructor(
+		private builder: FormBuilder,
+		private _flashMessagesService: FlashMessagesService,
+		private authService: AuthService,
+		private router: Router
+	) {
+
+	}
 
   ngOnInit() {
   }
@@ -32,6 +45,8 @@ export class PostImageComponent implements OnInit {
 	}
 
 	postImage(){
-		console.log(this.postImageForm.valid);
+		if(this.postImageForm.valid){
+			
+		}
 	}
 }

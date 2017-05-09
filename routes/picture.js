@@ -10,7 +10,6 @@ router.get('/', function(req, res, next) {
 
 /* POST a picture */
 router.post('/post-picture', function (req, res) {
-    console.log('Hello');
     var picture = req.body;
     Picture.addPicture(picture, function (err, picture) {
        if (err) {
