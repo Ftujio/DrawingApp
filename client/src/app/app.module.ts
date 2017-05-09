@@ -21,6 +21,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 
 import { routing } from './app.routes';
+import { DrawImageComponent } from './components/draw-image/draw-image.component';
 
 @NgModule({
 	declarations: [
@@ -31,7 +32,8 @@ import { routing } from './app.routes';
 		LoginComponent,
 		RegisterComponent,
 		PostImageComponent,
-		ProfileComponent
+		ProfileComponent,
+		DrawImageComponent
 	],
 	imports: [
 		BrowserModule,
