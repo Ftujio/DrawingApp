@@ -20,9 +20,6 @@ export class PostImageComponent implements OnInit {
   ngOnInit() {
   }
 
-	postImage(){
-		console.log(this.postImageForm.valid);
-	}
 
 	addTag(){
 		let value = this.postImageForm.value.tagInput;
@@ -35,4 +32,7 @@ export class PostImageComponent implements OnInit {
 		console.log(this.postImageForm.controls.tags['controls']);
 	}
 
+	postImage(){
+		console.log(this.postImageForm.valid);
+	}
 }
