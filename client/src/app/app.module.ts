@@ -13,12 +13,12 @@ import { PostComponent } from './components/post/post.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { PostImageComponent } from './components/post-image/post-image.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 // Services
 import { PostService } from './services/post.service';
 
 import { routing } from './app.routes';
-import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
 	declarations: [
