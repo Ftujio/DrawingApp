@@ -18,6 +18,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 // Services
 import { PostService } from './services/post.service';
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './guards/auth.guard';
 
 import { routing } from './app.routes';
 
@@ -40,7 +41,7 @@ import { routing } from './app.routes';
 		FlashMessagesModule,
 		routing
 	],
-	providers: [ PostService, AuthService ],
+	providers: [ PostService, AuthService, AuthGuard ],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule { }
