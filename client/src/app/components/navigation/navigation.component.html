@@ -2,7 +2,7 @@
 	<ul>
 		<li class="nav-elem left"><a routerLink="/">Home</a></li>
 		<li class="nav-elem left"><a routerLink="/">Category</a></li>
-		<li class="nav-elem left" *ngIf="authService.loggedIn()"><a routerLink="/post-image">Post Image</a></li>
+		<li class="nav-elem left" *ngIf="authService.loggedIn()"><a routerLink="/post-image">Draw Image</a></li>
 		<li class="nav-elem right" *ngIf="authService.loggedIn()"><a routerLink="/profile">Profile</a></li>
 		<li class="nav-elem right" *ngIf="!authService.loggedIn()"><a routerLink="/login">Login</a></li>
 		<li class="nav-elem right" *ngIf="!authService.loggedIn()"><a routerLink="/register">Register</a></li>
