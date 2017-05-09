@@ -1,6 +1,8 @@
 <div class="block content">
 	<h1 class="med-title" id="form-header">Draw Image</h1>
 
+	<app-draw-image></app-draw-image>
+
 	<form [formGroup]="postImageForm" (ngSubmit)="postImage()">
 		<div class="form-line">
 			<input type="text" name="title" id="title" formControlName="title" placeholder="Title" class="input">

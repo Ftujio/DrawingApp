@@ -1,3 +1,35 @@
 <div id="container">
-	
+	<div id="wrapper">
+		<!-- <img src="http://localhost:4200/src/public/img/drawingapp/logo.png" id="logo"> -->
+
+		<div id="editor-container">
+			<div class="tools-toolbar right-border">
+				<ul>
+					<li class="tool" id="brush"><img src="http://localhost:4200/src/public/img/drawingapp/paintbrush.png" class="tool-icon"></li>
+					<li class="tool" id="line"><img src="http://localhost:4200/src/public/img/drawingapp/diag-line.png" class="tool-icon"></li>
+					<li class="tool" id="circle"><img src="http://localhost:4200/src/public/img/drawingapp/circle.png" class="tool-icon"></li>
+					<li class="tool" id="square"><img src="http://localhost:4200/src/public/img/drawingapp/square.png" class="tool-icon"></li>
+					<li class="tool" id="eraser"><img src="http://localhost:4200/src/public/img/drawingapp/eraser.png" class="tool-icon"></li>
+					<!-- <li class="tool" id="undo"><img src="img/undo.png" class="tool-icon"></li> -->
+					<li class="tool" id="bin"><img src="http://localhost:4200/src/public/img/drawingapp/bin.png" class="tool-icon"></li>
+					<li class="tool"><a download="name.png" id="save"><img src="http://localhost:4200/src/public/img/drawingapp/save.png" class="tool-icon"></a></li>
+				</ul>
+			</div>
+
+			<canvas id="canvas" width="1060" height="500"></canvas>
+
+			<div class="tools-toolbar left-border">
+				<ul>
+					<li class="tool"><a id="red" class="color"></a></li>
+					<li class="tool"><a id="blue" class="color"></a></li>
+					<li class="tool"><a id="yellow" class="color"></a></li>
+					<li class="tool"><a id="green" class="color"></a></li>
+					<li class="tool"><a id="orange" class="color"></a></li>
+					<li class="tool"><a id="white" class="color"></a></li>
+					<li class="tool"><a id="gray" class="color"></a></li>
+					<li class="tool"><a id="black" class="color"></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </div>
