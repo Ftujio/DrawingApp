@@ -36,6 +36,7 @@ export class PostImageComponent implements OnInit {
   ngOnInit() {
 		this.authService.getProfile().subscribe(profile => {
 			this.user = profile.user;
+			console.log("user", this.user);
 		},
 		err => {
 			console.log(err);

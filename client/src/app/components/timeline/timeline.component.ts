@@ -17,7 +17,7 @@ export class TimelineComponent implements OnInit {
 			if(data.success){
 				console.log("Data retrieved successfully");
 				this.data = data.doc;
-				console.log(this.data);
+				console.log("DATA: ", this.data);
 			}
 		})
 	}
