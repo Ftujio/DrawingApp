@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+//import { System } from 'system';
 
 @Component({
   selector: 'app-draw-image',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DrawImageComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+		// System.import('public/js/setup.js').then(refToLoadedModule => {
+    //   refToLoadedModule.someFunction();
+    // });
+	}
 
   ngOnInit() {
   }

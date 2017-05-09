@@ -9,7 +9,6 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
-import { PostComponent } from './components/post/post.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { PostImageComponent } from './components/post-image/post-image.component';
@@ -28,7 +27,6 @@ import { DrawImageComponent } from './components/draw-image/draw-image.component
 		AppComponent,
 		NavigationComponent,
 		TimelineComponent,
-		PostComponent,
 		LoginComponent,
 		RegisterComponent,
 		PostImageComponent,
