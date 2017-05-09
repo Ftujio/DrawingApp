@@ -20,7 +20,6 @@ export class PostImageComponent implements OnInit {
   ngOnInit() {
   }
 
-
 	addTag(){
 		let value = this.postImageForm.value.tagInput;
 		let control = new FormControl(value, [
