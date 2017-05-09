@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class PostService {
 
-	url: string = "http://localhost:4200/src/app/services/posts.json";
+	url: string = "http://localhost:3001/picture/get-pictures";
 
 	constructor(private http: Http) { }
 
