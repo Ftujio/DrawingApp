@@ -14,14 +14,14 @@ export class AuthService {
 		let headers = new Headers();
 		headers.append('Content-Type', 'application/json');
 
-		return this.http.post('http://localhost:3001/users/register', user, {headers: headers}).map(res => res.json());
+		return this.http.post('http://localhost:3001/api/users/register', user, {headers: headers}).map(res => res.json());
 	}
 
 	authenticateUser(user){
 		let headers = new Headers();
 		headers.append('Content-Type', 'application/json');
 
-		return this.http.post('http://localhost:3001/users/authenticate', user, {headers: headers}).map(res => res.json());
+		return this.http.post('http://localhost:3001/api/users/authenticate', user, {headers: headers}).map(res => res.json());
 	}
 
 	getProfile(){
@@ -30,7 +30,7 @@ export class AuthService {
 		headers.append('Authorization', this.authToken);
 		headers.append('Content-Type', 'application/json');
 
-		return this.http.get('http://localhost:3001/users/profile', {headers: headers}).map(res => res.json());
+		return this.http.get('http://localhost:3001/api/users/profile', {headers: headers}).map(res => res.json());
 	}
 
 	storeUserData(token, user){

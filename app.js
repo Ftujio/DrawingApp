@@ -47,9 +47,9 @@ app.use(passport.session());
 
 require('./config/passport')(passport);
 
+app.use('/api/users', users);
+app.use('/api/picture', picture);
 app.use('/', index);
-app.use('/users', users);
-app.use('/picture', picture);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
