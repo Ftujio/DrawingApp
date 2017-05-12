@@ -42,10 +42,6 @@ export class RegisterComponent implements OnInit {
 
 	}
 
-	detectChanges(){
-		
-	}
-
 	ngOnInit() {
 	}
 
