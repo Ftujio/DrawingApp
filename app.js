@@ -8,6 +8,7 @@ const session = require('express-session')
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const router = express.Router();
 
 const config = require('./config/database');
 
