@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
 	}
 
 	detectChanges(){
-		console.log('changed');
+		
 	}
 
 	ngOnInit() {

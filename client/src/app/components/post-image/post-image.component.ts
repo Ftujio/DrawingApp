@@ -36,7 +36,6 @@ export class PostImageComponent implements OnInit {
   ngOnInit() {
 		this.authService.getProfile().subscribe(profile => {
 			this.user = profile.user;
-			console.log("user", this.user);
 		},
 		err => {
 			console.log(err);
@@ -51,15 +50,12 @@ export class PostImageComponent implements OnInit {
 		]);
 		if(value != '') this.postImageForm.controls.tags['controls'].push(control);
 		this.postImageForm.controls.tagInput.setValue('');
-
-		console.log("formtags", this.postImageForm.controls.tags['controls']);
 	}
 
 	postImage(){
 		let tagsVal = [];
 		if(this.postImageForm.valid){
 			for(let i = 0; i < this.postImageForm.controls.tags['controls'].length; i++){
-				//console.log(this.postImageForm.controls.tags['controls'][i].value);
 				tagsVal.push(this.postImageForm.controls.tags['controls'][i].value)
 			}
 
@@ -68,8 +64,6 @@ export class PostImageComponent implements OnInit {
 				title: this.postImageForm.value.title,
 				tags: tagsVal
 			}
-
-			console.log(picture);
 
 			let headers = new Headers();
 			headers.append('Content-Type', 'application/json');
