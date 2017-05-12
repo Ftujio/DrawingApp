@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef,Renderer2 } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef,Renderer2, AfterViewInit } from '@angular/core';
 import { Draw } from './draw';
 
 @Component({
@@ -6,20 +6,32 @@ import { Draw } from './draw';
   templateUrl: './draw-image.component.html',
   styleUrls: ['./draw-image.component.css', './icons.css', './main.css', './reset.css', './side-toolbar.css', './toolbar.css']
 })
-export class DrawImageComponent implements OnInit {
-	@ViewChild('canvasObj') canvasObj:ElementRef;
-	//draw: Draw;
-	canvas;
-	c;
+export class DrawImageComponent implements OnInit, AfterViewInit {
+	// @ViewChild('canvasObj') canvasObj:ElementRef;
+	// canvas;
+	// c;
 
-  constructor() {
+  constructor(private myElement: ElementRef) {
+
+	}
+
+	ngAfterViewInit(){
+		this.loadScript("setup.js");
+		this.loadScript("toolbar.js");
+	}
+
+	loadScript(name: string){
+		let s = document.createElement("script");
+  	s.type = "text/javascript";
+  	s.src = "http://localhost:3001/js/" + name;
+  	this.myElement.nativeElement.appendChild(s);
 	}
 
   ngOnInit() {
-		this.canvas = this.canvasObj.nativeElement;
-		this.c = this.canvas.getContext("2d");
-		this.c.fillStyle = "white";
-		this.c.fillRect(0, 0, this.canvas.width, this.canvas.height);
+		// this.canvas = this.canvasObj.nativeElement;
+		// this.c = this.canvas.getContext("2d");
+		// this.c.fillStyle = "red";
+		// this.c.fillRect(0, 0, this.canvas.width, this.canvas.height);
 	}
 
 }

@@ -160,27 +160,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 var DrawImageComponent = (function () {
-    function DrawImageComponent() {
+    // @ViewChild('canvasObj') canvasObj:ElementRef;
+    // canvas;
+    // c;
+    function DrawImageComponent(myElement) {
+        this.myElement = myElement;
     }
+    DrawImageComponent.prototype.ngAfterViewInit = function () {
+        this.loadScript("setup.js");
+        this.loadScript("toolbar.js");
+    };
+    DrawImageComponent.prototype.loadScript = function (name) {
+        var s = document.createElement("script");
+        s.type = "text/javascript";
+        s.src = "http://localhost:3001/js/" + name;
+        this.myElement.nativeElement.appendChild(s);
+    };
     DrawImageComponent.prototype.ngOnInit = function () {
-        this.canvas = this.canvasObj.nativeElement;
-        this.c = this.canvas.getContext("2d");
-        this.c.fillStyle = "white";
-        this.c.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        // this.canvas = this.canvasObj.nativeElement;
+        // this.c = this.canvas.getContext("2d");
+        // this.c.fillStyle = "red";
+        // this.c.fillRect(0, 0, this.canvas.width, this.canvas.height);
     };
     return DrawImageComponent;
 }());
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('canvasObj'),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _a || Object)
-], DrawImageComponent.prototype, "canvasObj", void 0);
 DrawImageComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-draw-image',
         template: __webpack_require__(190),
         styles: [__webpack_require__(176), __webpack_require__(177), __webpack_require__(178), __webpack_require__(179), __webpack_require__(180), __webpack_require__(181)]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _a || Object])
 ], DrawImageComponent);
 
 var _a;

@@ -1,3 +1,5 @@
+console.log('toolbar.js');
+
 let toolNum = document.getElementsByClassName("tools-toolbar")[0].children[0].childElementCount;
 let elem = document.getElementsByClassName("tools-toolbar")[0].children[0].children;
 var currentTool = 'brush';
