@@ -7,10 +7,6 @@ import { Draw } from './draw';
   styleUrls: ['./draw-image.component.css', './icons.css', './main.css', './reset.css', './side-toolbar.css', './toolbar.css']
 })
 export class DrawImageComponent implements OnInit, AfterViewInit {
-	// @ViewChild('canvasObj') canvasObj:ElementRef;
-	// canvas;
-	// c;
-
   constructor(private myElement: ElementRef) {
 
 	}
@@ -36,10 +32,7 @@ export class DrawImageComponent implements OnInit, AfterViewInit {
 	}
 
   ngOnInit() {
-		// this.canvas = this.canvasObj.nativeElement;
-		// this.c = this.canvas.getContext("2d");
-		// this.c.fillStyle = "red";
-		// this.c.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
 	}
 
 }
