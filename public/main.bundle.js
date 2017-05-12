@@ -878,7 +878,7 @@ var ProfileComponent = (function () {
         this.authService.getProfile().subscribe(function (profile) {
             _this.user = profile.user;
         }, function (err) {
-            console.log(err);
+            //console.log(err);
             return false;
         });
     };
