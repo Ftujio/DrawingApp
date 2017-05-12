@@ -73,7 +73,7 @@ export class PostImageComponent implements OnInit {
 
 			let headers = new Headers();
 			headers.append('Content-Type', 'application/json');
-			this.http.post('http://localhost:3001/picture/post-picture', picture, {headers: headers}).map(res => res.json()).subscribe(data => {
+			this.http.post('http://localhost:3001/api/picture/post-picture', picture, {headers: headers}).map(res => res.json()).subscribe(data => {
 				if(data.success){
 					this.router.navigate(['/']);
 				}
