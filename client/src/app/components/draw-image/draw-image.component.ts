@@ -18,6 +18,14 @@ export class DrawImageComponent implements OnInit, AfterViewInit {
 	ngAfterViewInit(){
 		this.loadScript("setup.js");
 		this.loadScript("toolbar.js");
+		this.loadScript("brush.js");
+		this.loadScript("line.js");
+		this.loadScript("circle.js");
+		this.loadScript("rectangle.js");
+		this.loadScript("eraser.js");
+		this.loadScript("bin.js");
+		this.loadScript("save.js");
+		this.loadScript("side-toolbar.js");
 	}
 
 	loadScript(name: string){
