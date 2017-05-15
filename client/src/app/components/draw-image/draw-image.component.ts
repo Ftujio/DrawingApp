@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild, ElementRef,Renderer2, AfterViewInit } from '@angular/core';
-import { Draw } from './draw';
 
 @Component({
   selector: 'app-draw-image',
