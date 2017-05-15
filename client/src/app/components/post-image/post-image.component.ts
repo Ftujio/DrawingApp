@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, FormArray, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Http, Headers } from '@angular/http';
@@ -12,7 +12,7 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './post-image.component.html',
   styleUrls: ['./post-image.component.css']
 })
-export class PostImageComponent implements OnInit {
+export class PostImageComponent implements OnInit, AfterViewInit {
 	user: Object;
 
 	postImageForm: FormGroup = this.builder.group({
@@ -43,6 +43,10 @@ export class PostImageComponent implements OnInit {
 		});
   }
 
+	ngAfterViewInit(){
+
+	}
+
 	addTag(){
 		let value = this.postImageForm.value.tagInput;
 		let control = new FormControl(value, [
@@ -53,6 +57,10 @@ export class PostImageComponent implements OnInit {
 	}
 
 	postImage(){
+		let image = document.getElementById("save");
+		let canvas = document.getElementById("canvas");
+		console.log(canvas);
+
 		let tagsVal = [];
 		if(this.postImageForm.valid){
 			for(let i = 0; i < this.postImageForm.controls.tags['controls'].length; i++){

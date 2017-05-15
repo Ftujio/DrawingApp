@@ -5,6 +5,7 @@ const pictureSchema = mongoose.Schema({
     title: String,
     description: String,
     tags: [String]
+		//pictureUrl: String
 });
 
 const Picture = module.exports = mongoose.model('Picture', pictureSchema);

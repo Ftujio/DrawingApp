@@ -6,6 +6,8 @@ import { Component, OnInit, ViewChild, ElementRef,Renderer2, AfterViewInit } fro
   styleUrls: ['./draw-image.component.css', './icons.css', './main.css', './reset.css', './side-toolbar.css', './toolbar.css']
 })
 export class DrawImageComponent implements OnInit, AfterViewInit {
+	image;
+
   constructor(private myElement: ElementRef) {
 
 	}
