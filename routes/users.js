@@ -8,15 +8,11 @@ const User = require('../models/user');
 
 // REGISTER
 router.post('/register', (req, res, next) => {
-	console.log(req.body);
-
 	let newUser = new User({
 		username: req.body.username,
 		email: req.body.email,
 		password: req.body.password
 	});
-
-	console.log(newUser);
 
 	User.addUser(newUser, (err, user) => {
 		if(err){

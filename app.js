@@ -9,6 +9,18 @@ const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const router = express.Router();
+const multer  = require('multer');
+
+const storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, '/tmp/my-uploads')
+  },
+  filename: function (req, file, callback) {
+    callback(null, file.fieldname + '-' + Date.now())
+  }
+});
+
+const upload = multer({ storage: storage });
 
 const config = require('./config/database');
 
