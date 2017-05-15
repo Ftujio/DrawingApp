@@ -7,6 +7,7 @@ setToolBGColor();
 
 for(let i = 0; i < toolNum - 1; i++){
 	elem[i].addEventListener("click", function(e){ setCurrentTool(i) });
+	elem[i].style.backgroundColor = "#f2f2f2";
 }
 
 function setToolBGColor(){
